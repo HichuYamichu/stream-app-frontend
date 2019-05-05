@@ -1,17 +1,29 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
+import Upload from './views/Upload.vue';
+import SessionView from './views/SessionView.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/upload',
+      name: 'Upload',
+      component: Upload
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/play/:name',
+      name: 'play',
+      component: SessionView
     },
     {
       path: '/about',
@@ -19,7 +31,8 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () =>
+        import(/* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
-})
+});
