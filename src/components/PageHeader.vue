@@ -2,6 +2,14 @@
   <nav>
   <v-navigation-drawer v-model="drawer" fixed clipped app>
     <v-list dense>
+      <v-list-tile @click="goUpload">
+        <v-list-tile-action>
+          <v-icon>cloud_upload</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Upload</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
       <v-list-tile v-for="item in items" :key="item.text" @click>
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
@@ -37,7 +45,7 @@
     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     <v-icon class="mx-3">fab fa-youtube</v-icon>
     <v-toolbar-title class="mr-5 align-center">
-      <span class="title">stream-app</span>
+      <span class="title" @click="go">stream-app</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-layout row align-center style="max-width: 650px">
@@ -74,7 +82,15 @@
     }),
     props: {
       source: String
-    }
+    },
+    methods: {
+      go: function() {
+        this.$router.push('/')
+      },
+      goUpload: function() {
+        this.$router.push('/upload')
+      }
+    },
   }
 </script>
 

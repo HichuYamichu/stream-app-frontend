@@ -2,7 +2,7 @@
   <v-layout row wrap justify-center align-center>
     <v-flex xs10 mt-4>
       <video
-        :src="`http://localhost:3000/api/video/${this.$route.params.name}`"
+        :src="`http://localhost:3000/api/video/${$route.params.name}`"
         controls
         ref="video"
         autoplay
