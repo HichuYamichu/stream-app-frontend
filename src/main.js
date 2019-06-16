@@ -7,8 +7,13 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 
 Vue.config.productionTip = false;
+console.log(process.env);
+if (process.env.VUE_APP_NGINX_PROXY) {
+  axios.defaults.baseURL = process.env.BASE_URL;
+} else if (process.env.NODE_ENV === 'development') {
+  // axios.defaults.baseURL = 'http://localhost:3001';
+}
 
-axios.defaults.baseURL = 'http://localhost:3000/api/';
 Vue.use(VueAxios, axios);
 
 new Vue({

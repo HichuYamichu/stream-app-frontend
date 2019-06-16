@@ -2,7 +2,7 @@
   <v-layout row wrap justify-center align-center>
     <v-flex xs10 mt-4>
       <video
-        :src="`http://localhost:3000/api/video/${$route.params.name}`"
+        :src="`${pathPrefix}/api/video/${$route.params.name}`"
         controls
         ref="video"
         autoplay
@@ -14,5 +14,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    pathPrefix: function() {
+      return process.env.VUE_APP_NGINX_PROXY ? process.env.VUE_APP_NGINX_PROXY : '';
+    }
+  },
+};
 </script>

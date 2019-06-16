@@ -9,7 +9,7 @@
         </div>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="upload">Upload</v-btn>
+          <v-btn :loading="loading" @click="upload">Upload</v-btn>
           <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
@@ -22,19 +22,22 @@ export default {
   data() {
     return {
       file: '',
-      videoName: ''
+      videoName: '',
+      loading: false
     };
   },
   methods: {
     // 140 x 75
-    upload: function(index) {
+    upload: async function(index) {
       if (!this.$refs['video'].files[0]) return;
+      this.loading = true
       this.file = this.$refs['video'].files[0];
       const formData = new FormData();
       formData.append('video', this.file);
       formData.append('desc', 'dsdasdsadasdas');
       formData.append('title', this.videoName);
-      this.axios.post('/videos/upload', formData);
+      await this.axios.post('/api/videos/upload', formData);
+      this.loading = false
     }
   }
 };
