@@ -8,27 +8,27 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-eslint": "^10.0.1",
     "core-js": "^2.6.5",
-    "eslint": "^5.16.0",
-    "eslint-config-aqua": "^5.0.0",
-    "eslint-plugin-vue": "^5.2.2",
     "prettier": "^1.17.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.3",
     "vue-video-player": "^5.0.2",
     "vuetify": "^1.5.5",
-    "vuex": "^3.0.1"
-  },
-  "devDependencies": {
+    "vuex": "^3.0.1",
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
     "vue-cli-plugin-vuetify": "^0.5.0",
     "vue-template-compiler": "^2.5.21",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "vuetify-loader": "^1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-aqua": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "babel-eslint": "^10.0.1"    
   },
   "postcss": {
     "plugins": {
